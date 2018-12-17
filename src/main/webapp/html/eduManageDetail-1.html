@@ -7,6 +7,17 @@
 	<link rel="stylesheet" type="text/css" href="../style/eduManage/eduManageDetail.css">
     <link rel="stylesheet" type="text/css" href="../style/eduManage/normal.css">
 	<script type="text/javascript" src="../js/normal.js"></script>
+	<!-- 显示pdf容器样式 -->
+	<style>
+		.pdfobject-container {
+		    max-width: 100%;
+			width: 1000px;
+			height: 1000px;
+			border: 10px solid rgba(0,0,0,.2);
+			margin: 0;
+		}
+	</style>
+</head>
 </head>
 
 <body onload="Rendering();">
@@ -43,40 +54,9 @@
 	                    </header>
 	                    <section class="article">
 							<div class="itemDetail newItemContent">
-								<table class="planTable disCenter">
-									<tbody>
-										<tr>
-											<td><h3>开课时间</h3></td>
-											<td><h3>学分</h3></td>
-											<td><h3>学时</h3></td>
-											<td><h3>授课教师</h3></td>
-										</tr>
-										<tr>
-											<td><h3>2018-2019学年第一学期</h3></td>
-											<td><h3>2</h3></td>
-											<td><h3>48</h3></td>
-											<td><h3>候爱民</h3></td>
-										</tr>
-										<tr>
-											<td><h3>2017-2018学年第二学期</h3></td>
-											<td><h3>2</h3></td>
-											<td><h3>48</h3></td>
-											<td><h3>候爱民</h3></td>
-										</tr>
-										<tr>
-											<td><h3>2017-2018学年第一学期</h3></td>
-											<td><h3>2</h3></td>
-											<td><h3>48</h3></td>
-											<td><h3>候爱民</h3></td>
-										</tr>
-										<tr>
-											<td><h3>2016-2017学年第二学期</h3></td>
-											<td><h3>2</h3></td>
-											<td><h3>48</h3></td>
-											<td><h3>候爱民</h3></td>
-										</tr>
-									</tbody>
-								</table>
+								
+								<div id="my-pdf"></div>
+
 							</div>
 	                    </section>
 	
@@ -90,5 +70,14 @@
 	<div id="bottom"></div>
 	<!-- 通过js渲染，js代码在normal.js里 -->
 	<div id="copyrights"></div>
+
+<!-- 引入jq -->
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<!-- 引入 显示pdf js组件 -->
+<script type="text/javascript" src="../js/pdfobject.min.js"></script>
+<script>
+var $container = $("#my-pdf");
+PDFObject.embed("../resource/开课计划.pdf", $container);
+</script>
 </body>
 </html>
